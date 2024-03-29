@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <!--responsividade-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!--owl css-->
+    <link rel="stylesheet" href="{% static 'css/owl/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl/owl.theme.default.min.css' %}">
+
+    {% block title %}{% endblock title %}
+</head>
+
+
+
+<body>
+    <header>
+        <div class="container">            
+            
+            <div class="logo2"></div>
+            <h2 class="logo">Chanchal K Maurya</h2>
+            <nav>
+                <a href="{{social.linkedin}}" target="_blank">LinkedIn</a>
+                <a href="{{social.github}}"  target="_blank">Github</a>
+                <a href="{{social.youtube}}" target="_blank">YouTube</a>
+            </nav>
+        </div>
+    </header>
+   
+
+   
+        <div class="filme-principal parallax">
+           
+            <div class="container">
+                <h3 class="titulo">Chanchal K Maurya</h3>
+                <p class="descricao"> I'm a Software Engineer with more than 2+ years experience in IT Industry.</p>
+                <p class="descricao">
+                    I was born in India in 1999. I had keen interest in computers thats why I chose Engineering with computer science.
+                    I have Completed my graduation from <strong style="color:red;"> PSIT College of Engineering Kanpur </strong> with <strong style="color:red;"> 8.9 CGPA </strong>.
+                </p>
+                
+                <div class="botoes">
+                    <a href="#IntroductionVideo"> 
+                        <button role="button" class="botao">
+                            <i class="fas fa-play"></i>
+                            VIDEO INTRODUCTION
+                        </button>
+                    </a>
+
+                    <div id="IntroductionVideo" class="IntroductionVideo">
+                        <div>
+                            <a href="#fechar" title="Fechar" class="fechar">x</a>
+                            <div class="video" >
+                                <iframe width="100%" height="410" src="https://www.youtube.com/embed/nFsOtP7HgXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                    <p>Here is my Video Introduction</p> </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#ModalInformação"> 
+                        <button role="button" class="botao">
+                            <i class="fas fa-info-circle"></i>
+                            MORE INFORMATION  <strong> Scroll Down </strong> 
+                        </button>
+                    </a>
+                </div>
+                <div class="vazia"></div>
+            </div>
+        </div>
+
+    </main>
+
+    
+
+    <div class="carrosel-filmes">
+        <h2 class="headlines"> Technical Strength </h2>
+
+        {% if not all_skill %}
+            <div class="text-center">
+                <p> No Technical Skills are there. </p>
+            </div>
+        {% else %}
+        <div class="owl-carousel owl-theme">
+            {% for skill in all_skill %}
+                <div class="item">
+                    {% if not skill.img %}
+                        <img class="box-filme" src="{% static 'images/Pting.jfif' %}" alt="Images" srcset="">
+                    {% else %}
+                        <img class="box-filme" src="{{ skill.img.url }}" alt="Images" srcset="">
+                    {% endif %} 
+                    <p class="tituloCarrosel">{{skill.skill_name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+
+    <section class="anuncio parallax">
+        <div class="container 50e">
+            <h2 class="titulo">Work Experience </h2></br>
+            <h4 style="color:red">
+                Info Edge India Limited<br>
+                Tiger Analytics
+            </h4>
+            <p class="descricao negrito">
+                having more than 2+years of Experience ,</br> Worked as Data Scientist, Software Development Engineer in Test.
+            </p>
+        </div>
+    </section>
+
+    <div class="carrosel-filmes">
+        
+        <h2 class="headlines"> Projects </h2>
+        {% if not all_projects %}
+            <div class="text-center">
+                <p style="color:white"> No Projects Available. </p>
+            </div>
+        {% else %}
+        <div class="owl-carousel owl-theme">
+            {% for project in all_projects %}
+                <div class="item">
+                    {% if not project.prj_screenshot %}
+                        <img class="box-filme" src="{% static 'images/Pting.jfif' %}" alt="Images" srcset="">
+                    {% else %}
+                        <img class="box-filme" src="{{ project.prj_screenshot.url }}" alt="Images" srcset="">
+                    {% endif %}  
+                    <p class="tituloCarrosel">{{project.prj_name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+
+    <div class="filme-principal parallax">
+           
+        <div class="container">
+            <h3 class="titulo"><strong style="color:yellow;"> HMWB </strong>Academy</h3>
+            <p class="descricao"> An Ed-tech youtube channel where we provide the DSA and Technical Training.</p>
+            <p class="descricao">
+                Multiple Courses are available free on our Youtube Channel. <a href= "https://www.youtube.com/@HMWBAcademy" target="_blank">Click here </a> to watch them.
+            </p>
+            
+            <div class="botoes">
+                <a href="#IntroductionVideoHMWB"> 
+                    <button role="button" class="botao">
+                        <i class="fas fa-play"></i>
+                        Channel Introduction
+                    </button>
+                </a>
+
+                <div id="IntroductionVideoHMWB" class="IntroductionVideo">
+                    <div>
+                        <a href="#fechar" title="Fechar" class="fechar">x</a>
+                        <div class="video" >
+                            <iframe width="100%" height="410" src="https://www.youtube.com/embed/3qgaPjuMavA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                <p>Channel Info</p> </iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#ModalInformação"> 
+                    <button role="button" class="botao">
+                        <i class="fas fa-info-circle"></i>
+                        MORE INFORMATION  <strong> Scroll Down </strong> 
+                    </button>
+                </a>
+            </div>
+            <div class="vazia"></div>
+        </div>
+    </div>
+
+
+    {% comment %} I'm currently commenting the course section, because currently we have only free courses {% endcomment %}
+    {% comment %} <div class="carrosel-filmes">
+        <h2 class="headlines"> Our Courses </h2>
+        {% if not all_course %}
+            <div class="text-center">
+                <p style="color:white"> No Courses Available. </p>
+            </div>
+        {% else %}
+        <div class="owl-carousel owl-theme">
+            {% for course in all_course %}
+                <div class="item">                    
+                    <img class="box-filme" src="{{ course.img.url }}" alt="Images" srcset="">
+                    <p class="tituloCarrosel">{{course.course_name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div> {% endcomment %}
+
+    <section class="anuncio parallax">
+        <br>
+        <div class="50d">
+            <h3 class="message" id="message"><strong style="color:red;">Subscribe </strong> to us on <strong> YOUTUBE </strong></h3>
+            <div class="row ">
+                <div class="col-lg-4">
+                    <iframe class="videomessage" width="512" height="288" src="https://www.youtube.com/embed/playlist?list=PLPqgCRwY0R3_WWkggRtm6AXAjmEFPFt3o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-4">
+                    <iframe class="videomessage" width="512" height="288" src="https://www.youtube.com/embed/playlist?list=PLPqgCRwY0R3-JO1EdGE7WM6ssCTV7X1t_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-4">
+                    <iframe class="videomessage" width="512" height="288" src="https://www.youtube.com/embed/playlist?list=PLPqgCRwY0R3_rOb4kxg7oE86-35eq-_SB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            </div>            
+    </section>
+
+    
+ 
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+    <script src="{% static 'js/owl/jquery.min.js' %}"></script>
+    <script src="{% static 'js/owl/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/owl/setup.js' %}"></script>
+ 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
